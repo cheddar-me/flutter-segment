@@ -4,6 +4,7 @@ class SegmentConfig {
     this.trackApplicationLifecycleEvents = false,
     this.amplitudeIntegrationEnabled = false,
     this.mixpanelIntegrationEnabled = false,
+    this.appsFlyerIntegrationEnabled = false,
     this.debug = false,
   });
 
@@ -11,6 +12,7 @@ class SegmentConfig {
   final bool trackApplicationLifecycleEvents;
   final bool amplitudeIntegrationEnabled;
   final bool mixpanelIntegrationEnabled;
+  final bool appsFlyerIntegrationEnabled;
   final bool debug;
 
   Map<String, dynamic> toMap() {
@@ -19,6 +21,7 @@ class SegmentConfig {
       'trackApplicationLifecycleEvents': trackApplicationLifecycleEvents,
       'amplitudeIntegrationEnabled': amplitudeIntegrationEnabled,
       'mixpanelIntegrationEnabled': mixpanelIntegrationEnabled,
+      'appsFlyerIntegrationEnabled': appsFlyerIntegrationEnabled,
       'debug': debug,
     };
   }

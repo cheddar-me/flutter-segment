@@ -4,6 +4,7 @@
 #import <Segment/SEGMiddleware.h>
 #import <Segment_Amplitude/SEGAmplitudeIntegrationFactory.h>
 #import <Segment_Mixpanel/SEGMixpanelIntegrationFactory.h>
+#import "SEGAppsFlyerIntegrationFactory.h"
 
 @implementation FlutterSegmentPlugin
 // Contents to be appended to the context
@@ -349,6 +350,7 @@ static BOOL wasSetupFromFile = NO;
     BOOL trackApplicationLifecycleEvents = [[dict objectForKey: @"com.claimsforce.segment.TRACK_APPLICATION_LIFECYCLE_EVENTS"] boolValue];
     BOOL isAmplitudeIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_AMPLITUDE_INTEGRATION"] boolValue];
     BOOL isMixpanelIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_MIXPANEL_INTEGRATION"] boolValue];
+    BOOL isAppsFlyerIntegrationEnabled = [[dict objectForKey: @"com.claimsforce.segment.ENABLE_APPSFLYER_INTEGRATION"] boolValue];
     if(!writeKey) {
         return nil;
     }
@@ -361,6 +363,9 @@ static BOOL wasSetupFromFile = NO;
     if (isMixpanelIntegrationEnabled) {
       [configuration use:[SEGMixpanelIntegrationFactory instance]];
     }
+    if (isAppsFlyerIntegrationEnabled) {
+      [configuration use:[SEGAppsFlyerIntegrationFactory instance]];
+    }
 
     return configuration;
 }
@@ -370,6 +375,7 @@ static BOOL wasSetupFromFile = NO;
     BOOL trackApplicationLifecycleEvents = [[dict objectForKey: @"trackApplicationLifecycleEvents"] boolValue];
     BOOL isAmplitudeIntegrationEnabled = [[dict objectForKey: @"amplitudeIntegrationEnabled"] boolValue];
     BOOL isMixpanelIntegrationEnabled = [[dict objectForKey: @"mixpanelIntegrationEnabled"] boolValue];
+    BOOL isAppsFlyerIntegrationEnabled = [[dict objectForKey: @"appsFlyerIntegrationEnabled"] boolValue];
     SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:writeKey];
     configuration.trackApplicationLifecycleEvents = trackApplicationLifecycleEvents;
 
@@ -378,6 +384,9 @@ static BOOL wasSetupFromFile = NO;
     }
     if (isMixpanelIntegrationEnabled) {
       [configuration use:[SEGMixpanelIntegrationFactory instance]];
+    }
+    if (isAppsFlyerIntegrationEnabled) {
+      [configuration use:[SEGAppsFlyerIntegrationFactory instance]];
     }
 
     return configuration;
