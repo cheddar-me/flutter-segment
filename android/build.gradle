@@ -32,6 +32,9 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+    if (project.android.hasProperty('namespace')) {
+        namespace 'com.example.flutter_segment'
+    }
 
     dependencies {
         implementation 'com.segment.analytics.android:analytics:4.10.4'
