@@ -9,15 +9,22 @@ public class FlutterSegmentOptions {
     private final Boolean trackApplicationLifecycleEvents;
     private final Boolean amplitudeIntegrationEnabled;
     private final Boolean mixpanelIntegrationEnabled;
-    private final Boolean appsFlyerIntegrationEnabled;
+    private final Boolean appsflyerIntegrationEnabled;
     private final Boolean debug;
 
-    public  FlutterSegmentOptions(String writeKey, Boolean trackApplicationLifecycleEvents, Boolean amplitudeIntegrationEnabled, Boolean mixpanelntegrationEnabled, Boolean appsFlyerIntegrationEnabled, Boolean debug) {
+    public  FlutterSegmentOptions(
+            String writeKey,
+            Boolean trackApplicationLifecycleEvents,
+            Boolean amplitudeIntegrationEnabled,
+            Boolean appsflyerIntegrationEnabled,
+            Boolean mixpanelntegrationEnabled,
+            Boolean debug
+    ) {
         this.writeKey = writeKey;
         this.trackApplicationLifecycleEvents = trackApplicationLifecycleEvents;
         this.amplitudeIntegrationEnabled = amplitudeIntegrationEnabled;
+        this.appsflyerIntegrationEnabled = appsflyerIntegrationEnabled;
         this.mixpanelIntegrationEnabled = mixpanelntegrationEnabled;
-        this.appsFlyerIntegrationEnabled = appsFlyerIntegrationEnabled;
         this.debug = debug;
     }
 
@@ -37,8 +44,8 @@ public class FlutterSegmentOptions {
         return mixpanelIntegrationEnabled;
     }
 
-    public Boolean isAppsFlyerIntegrationEnabled() {
-      return appsFlyerIntegrationEnabled;
+    public Boolean isAppsflyerIntegrationEnabled() {
+        return appsflyerIntegrationEnabled;
     }
 
     public Boolean getDebug() {
@@ -50,19 +57,19 @@ public class FlutterSegmentOptions {
         Boolean trackApplicationLifecycleEvents = bundle.getBoolean("com.claimsforce.segment.TRACK_APPLICATION_LIFECYCLE_EVENTS");
         Boolean isAmplitudeIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_AMPLITUDE_INTEGRATION", false);
         Boolean isMixpanelIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_MIXPANEL_INTEGRATION", false);
-        Boolean isAppsFlyerIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_APPSFLYER_INTEGRATION", false);
+        Boolean isAppsflyerIntegrationEnabled = bundle.getBoolean("com.claimsforce.segment.ENABLE_APPSFLYER_INTEGRATION", false);
         Boolean debug = bundle.getBoolean("com.claimsforce.segment.DEBUG", false);
-        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isMixpanelIntegrationEnabled, isAppsFlyerIntegrationEnabled, debug);
+        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isMixpanelIntegrationEnabled, isAppsflyerIntegrationEnabled, debug);
     }
 
     static FlutterSegmentOptions create(HashMap<String, Object> options) {
         String writeKey = (String) options.get("writeKey");
         Boolean trackApplicationLifecycleEvents = (Boolean) options.get("trackApplicationLifecycleEvents");
         Boolean isAmplitudeIntegrationEnabled = orFalse((Boolean) options.get("amplitudeIntegrationEnabled"));
+        Boolean isAppsflyerIntegrationEnabled = orFalse((Boolean) options.get("appsflyerIntegrationEnabled"));
         Boolean isMixpanelIntegrationEnabled = orFalse((Boolean) options.get("mixpanelIntegrationEnabled"));
-        Boolean isAppsFlyerIntegrationEnabled = orFalse((Boolean) options.get("appsFlyerIntegrationEnabled"));
         Boolean debug = orFalse((Boolean) options.get("debug"));
-        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isMixpanelIntegrationEnabled, isAppsFlyerIntegrationEnabled, debug);
+        return new FlutterSegmentOptions(writeKey, trackApplicationLifecycleEvents, isAmplitudeIntegrationEnabled, isMixpanelIntegrationEnabled, isAppsflyerIntegrationEnabled, debug);
     }
 
     private static Boolean orFalse(Boolean value) {

@@ -1,3 +1,26 @@
+## 3.13.2
+- Update README with no longer maintaining message
+
+## 3.13.1
+- iOS: Update Appsflyer SDK iOS dependency 6.10.1 (#76)
+
+## 3.13.0
+- iOS: Update AppsFlyer version for iOS (#70)
+
+## 3.12.1
+- iOS: Fix for iOS Application Installed event (#56)
+- iOS: Update iOS podspec dependency and metadata (#55)
+
+## 3.11.0
+- Web: Fix linter warning `implementation_imports` (#20)
+- Android: Remove deprecated APIs and fix for a few found issues (#33)
+
+## 3.9.0
+- Android: update segment dependencies and [Google Play policies violation in flutter_segment 3.7.0](https://github.com/la-haus/flutter-segment/issues/30) thanks @vbuberen
+- Android: Upgrade gradle build config for android [PR](https://github.com/la-haus/flutter-segment/pull/29) thanks @vbuberen
+- iOS: Fix userId nil throws "unrecognized selector sent to instance" thanks @zenled
+- Add apps flyer integration [PR](https://github.com/la-haus/flutter-segment/pull/19) thanks @johnsouza-loftbr
+
 ## 3.7.0
 * Android/iOS: add `Segment.flush` for debug environments (https://github.com/la-haus/flutter-segment/pull/9).
 * iOS: improve logging (https://github.com/claimsforce-gmbh/flutter-segment/pull/111)
